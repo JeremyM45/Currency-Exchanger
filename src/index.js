@@ -2,13 +2,14 @@ import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
-import {addOptions} from  "./UI";
+import {addInputs, addOptions} from  "./UI";
 import { Converter } from "./converter";
-// import { ExchangeRate } from "./currency-services";
+import { ExchangeRate } from "./currency-services";
 let exchangeRates = "";
+addInputs();
 (async function() {
-  // const currancyExchange = await ExchangeRate.getExchangRate();
-  // exchangeRates = currancyExchange.conversion_rates;
+  const currancyExchange = await ExchangeRate.getExchangRate();
+  exchangeRates = currancyExchange.conversion_rates;
   addOptions();
 })();
 $('#get-exchange-rate').on('click', (exchangeRates), function()  {

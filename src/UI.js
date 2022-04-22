@@ -10,6 +10,27 @@ export function hideAll() {
   $("#currency-select").hide();
   $("#results").hide();
 }
+export function addInputs()  {
+  $("#display").html(`
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="amount">Enter Amount in USD
+          <input id="amount" type="number" name="amount">
+        </label>
+        <label for="currency-select">Select Currency
+          <select id="currency-select" name="currency-select">
+          </select>
+        </label>
+      </div>
+      <div class="col-lg-6">
+        <h3 id="results"></h3>
+      </div>
+    </div>
+    <button id="get-exchange-rate" class="btn">Get Exchange Rate</button>
+  </div>
+  `);
+}
 export function addOptions()  {
   const optionCodes = [
     `AED`,`AFN`,`ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`,

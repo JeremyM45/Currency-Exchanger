@@ -16,6 +16,10 @@ body  {
   transform: scale(1.15);
 }
 .page-header  {
+  font-family: 'Times New Roman', Times, serif;
   background-color: #85bb65;
   border: 5px solid #628b4a;
+}
+.col-lg-6 {
+  margin-top: 3%;
 }
