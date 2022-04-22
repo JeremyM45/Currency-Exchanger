@@ -12,7 +12,7 @@ let exchangeRates = "";
   addOptions();
   console.log(exchangeRates);
 })();
-$('#get-exchange-rate').on('click', (exchangeRates), async function()  {
+$('#get-exchange-rate').on('click', (exchangeRates), function()  {
   let usdAmount = $('#amount').val();
   let selectCurrency = $('#currency-select').val();
   let conversion = new Converter(usdAmount, exchangeRates[`${selectCurrency}`]);

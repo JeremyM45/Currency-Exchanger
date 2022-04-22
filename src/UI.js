@@ -1,4 +1,15 @@
 import $ from "jquery";
+export function errorMessage(error, type, apiSite)  {
+  hideAll();
+  $('#results').html(`<h4>Error ${error}: ${type}. You may be using an invalid API Key or Currency Code - For more information visit <a href="${apiSite}">Exchange Rate API</a></h4>`);
+  $("#results").show();
+}
+export function hideAll() {
+  $("#get-exchange-rate").hide();
+  $("#amount").hide();
+  $("#currency-select").hide();
+  $("#results").hide();
+}
 export function addOptions()  {
   const optionCodes = [
     `AED`,`AFN`,`ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`,
