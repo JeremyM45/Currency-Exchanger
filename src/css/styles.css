@@ -23,3 +23,9 @@ body  {
 .col-lg-6 {
   margin-top: 3%;
 }
+#display-convert-from-usd {
+  display: none;
+}
+#display-convert-from-any {
+  display: none;
+}

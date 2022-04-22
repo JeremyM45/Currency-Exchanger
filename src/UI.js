@@ -10,28 +10,7 @@ export function hideAll() {
   $("#currency-select").hide();
   $("#results").hide();
 }
-export function addInputs()  {
-  $("#display").html(`
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <label for="amount">Enter Amount in USD
-          <input id="amount" type="number" name="amount">
-        </label>
-        <label for="currency-select">Select Currency
-          <select id="currency-select" name="currency-select">
-          </select>
-        </label>
-      </div>
-      <div class="col-lg-6">
-        <h3 id="results"></h3>
-      </div>
-    </div>
-    <button id="get-exchange-rate" class="btn">Get Exchange Rate</button>
-  </div>
-  `);
-}
-export function addOptions()  {
+export function addOptions(id)  {
   const optionCodes = [
     `AED`,`AFN`,`ALL`, `AMD`, `ANG`, `AOA`, `ARS`, `AUD`, `AWG`, `AZN`,
     `BAM`, `BBD`, `BDT`, `BGN`, `BHD`, `BIF`, `BMD`, `BND`, `BOB`, `BRL`, `BSD`, `BTN`, `BWP`, `BYN`, `BZD`,
@@ -53,7 +32,7 @@ export function addOptions()  {
     `RON`, `RSD`, `RUB`, `RWF`,
     `SAR`, `SBD`, `SCR`, `SDG`, `SEK`, `SGD`, `SHP`, `SLL`, `SOS`, `SRD`, `SSP`, `STN`, `SYP`, `SZL`,
     `THB`, `TJS`, `TMT`, `TND`, `TOP`, `TRY`, `TTD`, `TVD`, `TWD`, `TZS`,
-    `UAH`, `UGX`, `UYU`, `UZS`,
+    `UAH`, `UGX`, `USD` , `UYU`, `UZS`,
     `VES`, `VND`, `VUV`,
     `WST`,
     `XAF`, `XCD`, `XDR`, `XOF`, `XPF`,
@@ -82,7 +61,7 @@ export function addOptions()  {
     `Romanian Leu`, `Serbian Dinar`, `Russian Ruble`, `Rwandan Franc`,
     `Saudi Riyal Saudi`, `Solomon Islands Dollar`, `Seychellois Rupee`, `Sudanese Pound`, `Swedish Krona`, `Singapore Dollar`, `Saint Helena Pound`, `Sierra Leonean Leone`, `Somali Shilling`, `Surinamese Dollar`, `South Sudanese Pound`, `São Tomé and Príncipe Dobra`, `Syrian Pound`, `Eswatini Lilangeni`,
     `Thai Baht`, `Tajikistani Somoni`, `Turkmenistan Manat`, `Tunisian Dinar`, `Tongan Pa'anga`, `Turkish Lira`, `Trinidad and Tobago Dollar`, `Tuvaluan Dollar`, `New Taiwan Dollar`, `Tanzanian Shilling`,
-    `Ukrainian Hryvnia`, `Ugandan Shilling`, `Uruguayan Peso`, `Uzbekistani So'm`,
+    `Ukrainian Hryvnia`, `Ugandan Shilling`, `United States Dollar`, `Uruguayan Peso`, `Uzbekistani So'm`,
     `Venezuelan Bolívar Soberano`, `Vietnamese Đồng`, `Vanuatu Vatu`,
     `Samoan Tālā`,
     `Central African CFA Franc`, `East Caribbean Dollar`, `Special Drawing Rights`, `West African CFA franc`, `CFP Franc`,
@@ -90,6 +69,6 @@ export function addOptions()  {
     `South African Rand`, `Zambian Kwacha`, `Zimbabwean Dollar`
   ];
   for (let i = 0; i < optionCodes.length; i++)  {
-    $(`#currency-select`).append(`<option value='${optionCodes[i]}'>${optionNames[i]} (${optionCodes[i]})</option>`);
+    $(`#${id}`).append(`<option value='${optionCodes[i]}'>${optionNames[i]} (${optionCodes[i]})</option>`);
   }
 }

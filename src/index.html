@@ -7,7 +7,40 @@
 <div class="page-header text-center">
   <h1>Currency Exchanger</h1>
 </div>
-<div id="display">
+<div class="container">
+  <button id="start-usd" class="btn primary">Convert From USD</button>
+  <button id="start-any" class="btn success">Convert Any</button>
+  <div class="row">
+    <div class="col-lg-6">
+      <div id="display-convert-from-usd">
+        <label for="amount">Enter Amount in USD
+          <input id="amount" type="number" name="amount">
+        </label>
+        <label for="currency-select">Select Currency
+          <select id="currency-select" name="currency-select">
+          </select>
+        </label>
+        <button id="get-exchange-usd-rate" class="btn">Get Exchange Rate</button>
+      </div>
+      <div id="display-convert-from-any">
+        <label for="select-convert-from">Select Currency To Convert From
+          <select id="select-convert-from">
+          </select>
+        </label>
+        <label for="amount-to-convert">Enter Amount
+          <input id="amount-to-convert" type="number" name="amount-to-convert">
+        </label>
+        <label for="select-convert-to">Select Currency To Convert To
+          <select id="select-convert-to">
+          </select>
+        </label>
+        <button id="get-exchange-any-rate" class="btn">Get Exchange Rate</button>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <h3 id="results"></h3>
+    </div>
+  </div>
 </div>
 </body>
 </html>
