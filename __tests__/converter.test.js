@@ -13,6 +13,6 @@ describe("convert", ()  =>  {
     let amount = 5;
     let newConverter = new Converter(amount, currency);
     newConverter.convert();
-    expect(newConverter.convertedAmount).toEqual(18.35)
+    expect(newConverter.convertedAmount).toEqual(18.35);
   });
 })
