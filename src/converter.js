@@ -4,6 +4,6 @@ export class Converter  {
     this.currency = currency
   }
   convert(){
-    
+    this.convertedAmount = this.amount * this.currency
   }
 }
