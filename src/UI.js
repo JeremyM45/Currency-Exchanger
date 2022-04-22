@@ -1,7 +1,7 @@
 import $ from "jquery";
-export function errorMessage(error, type, apiSite)  {
+export function errorMessage(error)  {
   hideAll();
-  $('#results').html(`<h4>Error ${error}: ${type}. You may be using an invalid API Key or Currency Code - For more information visit <a href="${apiSite}">Exchange Rate API</a></h4>`);
+  $('#results').html(`<h4>Error ${error}. You may be using an invalid API Key, URL, or Currency Code - For more information visit <a href="https://www.exchangerate-api.com/#support">Exchange Rate API</a></h4>`);
   $("#results").show();
 }
 export function hideAll() {
