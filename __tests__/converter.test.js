@@ -15,4 +15,10 @@ describe("convert", ()  =>  {
     newConverter.convert();
     expect(newConverter.convertedAmount).toEqual(18.35);
   });
+  test('it should fail if currency is undefined', ()  =>  {
+    let currency = undefined;
+    let amount = 5;
+    let newConverter = new Converter(amount, currency);
+    expect(newConverter.convert()).toBeFalsy();
+  })
 })
