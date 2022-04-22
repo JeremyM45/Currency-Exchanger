@@ -37,7 +37,8 @@ export function addOptions(id)  {
     `WST`,
     `XAF`, `XCD`, `XDR`, `XOF`, `XPF`,
     `YER`,
-    `ZAR`, `ZMW`, `ZWL`
+    `ZAR`, `ZMW`, `ZWL`,
+    `RED`
   ];
 
   const optionNames = [
@@ -66,7 +67,8 @@ export function addOptions(id)  {
     `Samoan Tālā`,
     `Central African CFA Franc`, `East Caribbean Dollar`, `Special Drawing Rights`, `West African CFA franc`, `CFP Franc`,
     `Yemeni Rial	Yemen`,
-    `South African Rand`, `Zambian Kwacha`, `Zimbabwean Dollar`
+    `South African Rand`, `Zambian Kwacha`, `Zimbabwean Dollar`,
+    `Roman Denarii`
   ];
   for (let i = 0; i < optionCodes.length; i++)  {
     $(`#${id}`).append(`<option value='${optionCodes[i]}'>${optionNames[i]} (${optionCodes[i]})</option>`);

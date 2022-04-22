@@ -4,12 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import { addOptions } from  "./UI";
 import { Converter } from "./converter";
-// import { ExchangeRate } from "./currency-services";
+import { ExchangeRate } from "./currency-services";
+
 let exchangeRates = "";
-// (async function() {
-//   const currancyExchange = await ExchangeRate.getExchangRate();
-//   exchangeRates = currancyExchange.conversion_rates;
-// })();
+(async function() {
+  const currancyExchangeUsd = await ExchangeRate.getExchangRate();
+  exchangeRates = currancyExchangeUsd.conversion_rates;
+})();
 $('#start-usd').on('click', async function() {
   $('#display-convert-from-usd').show();
   $('#display-convert-from-any').hide();
@@ -20,9 +21,12 @@ $('#start-usd').on('click', async function() {
 $('#get-exchange-usd-rate').on('click', (exchangeRates), function()  {
   let usdAmount = $('#amount').val();
   let selectCurrency = $('#currency-select').val();
-  let conversion = new Converter(usdAmount, exchangeRates[`${selectCurrency}`]);
-  conversion.convert();
-  $('#results').text(`$${usdAmount} is ${conversion.convertedAmount} ${selectCurrency}`);
+  let convertUsd = new Converter(usdAmount, exchangeRates[`${selectCurrency}`]);
+  if(!convertUsd.convert()) {
+    $('#results').text(`Error: Invalid currency selection`);
+  } else{
+    $('#results').text(`$${usdAmount} is ${convertUsd.convertedAmount} ${selectCurrency}`);
+  }
 });
 $('#start-any').on('click', function()  {
   $('#display-convert-from-any').show();
@@ -37,6 +41,9 @@ $('#get-exchange-any-rate').on('click', (exchangeRates), async function() {
   let convertFrom = $('#select-convert-from').val();
   let convertTo = $('#select-convert-to').val();
   console.log(amount);
-  console.log(convertFrom);
-  console.log(convertTo);
+  let currancyExchangeAny = await ExchangeRate.getRateCompare(convertFrom, convertTo);
+  let conversionRate = currancyExchangeAny.conversion_rate;
+  let convertAny = new Converter(amount, conversionRate);
+  convertAny.convert();
+  $('#results').text(`${amount} ${convertFrom} is ${convertAny.convertedAmount} ${convertTo}`);
 });

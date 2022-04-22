@@ -4,6 +4,14 @@ export class Converter  {
     this.currency = currency;
   }
   convert(){
-    this.convertedAmount = this.amount * this.currency;
+    console.log(this.currency);
+    if(this.currency === undefined) {
+      console.log("test");
+      return false;
+    } else {
+      console.log("test2");
+      this.convertedAmount = this.amount * this.currency;
+      return true;
+    }    
   }
 }
