@@ -4,13 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
 import {addOptions} from  "./UI";
 import { Converter } from "./converter";
-import { ExchangeRate } from "./currency-services";
+// import { ExchangeRate } from "./currency-services";
 let exchangeRates = "";
 (async function() {
-  const currancyExchange = await ExchangeRate.getExchangRate();
-  exchangeRates = currancyExchange.conversion_rates;
+  // const currancyExchange = await ExchangeRate.getExchangRate();
+  // exchangeRates = currancyExchange.conversion_rates;
   addOptions();
-  console.log(exchangeRates);
 })();
 $('#get-exchange-rate').on('click', (exchangeRates), function()  {
   let usdAmount = $('#amount').val();

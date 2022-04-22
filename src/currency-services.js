@@ -14,6 +14,5 @@ export class ExchangeRate {
     } catch(error){
       errorMessage(error.message);
     }
-
   }
 }
