@@ -2,7 +2,7 @@ import $ from "jquery";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
-import { addOptions } from  "./UI";
+import { addOptions, hideAll } from  "./UI";
 import { Converter } from "./converter";
 import { ExchangeRate } from "./currency-services";
 
@@ -12,9 +12,8 @@ let exchangeRates = "";
   exchangeRates = currancyExchangeUsd.conversion_rates;
 })();
 $('#start-usd').on('click', async function() {
+  hideAll();
   $('#display-convert-from-usd').show();
-  $('#display-convert-from-any').hide();
-  $('#start-usd').hide();
   $('#start-any').show();
   addOptions("currency-select");
 });
@@ -26,13 +25,13 @@ $('#get-exchange-usd-rate').on('click', (exchangeRates), function()  {
     $('#results').text(`Error: Invalid currency selection`);
   } else{
     $('#results').text(`$${usdAmount} is ${convertUsd.convertedAmount} ${selectCurrency}`);
+    $('#results').show();
   }
 });
 $('#start-any').on('click', function()  {
+  hideAll();
   $('#display-convert-from-any').show();
-  $('#display-convert-from-usd').hide();
   $('#start-usd').show();
-  $('#start-any').hide();
   addOptions("select-convert-from");
   addOptions("select-convert-to");
 });
@@ -46,4 +45,5 @@ $('#get-exchange-any-rate').on('click', (exchangeRates), async function() {
   let convertAny = new Converter(amount, conversionRate);
   convertAny.convert();
   $('#results').text(`${amount} ${convertFrom} is ${convertAny.convertedAmount} ${convertTo}`);
+  $('#results').show();
 });

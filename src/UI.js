@@ -5,10 +5,12 @@ export function errorMessage(error)  {
   $("#results").show();
 }
 export function hideAll() {
-  $("#get-exchange-rate").hide();
-  $("#amount").hide();
-  $("#currency-select").hide();
+  $("#display-convert-from-usd").hide();
+  $("#display-convert-from-any").hide();
+  $('#start-any').hide();
+  $('#start-usd').hide();
   $("#results").hide();
+  
 }
 export function addOptions(id)  {
   const optionCodes = [
