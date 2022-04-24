@@ -35,11 +35,10 @@ $('#start-any').on('click', function()  {
   addOptions("select-convert-from");
   addOptions("select-convert-to");
 });
-$('#get-exchange-any-rate').on('click', (exchangeRates), async function() {
+$('#get-exchange-any-rate').on('click', async function() {
   let amount = $('#amount-to-convert').val();
   let convertFrom = $('#select-convert-from').val();
   let convertTo = $('#select-convert-to').val();
-  console.log(amount);
   let currancyExchangeAny = await ExchangeRate.getRateCompare(convertFrom, convertTo);
   let conversionRate = currancyExchangeAny.conversion_rate;
   let convertAny = new Converter(amount, conversionRate);

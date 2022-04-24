@@ -4,7 +4,6 @@ export class Converter  {
     this.currency = currency;
   }
   convert(){
-    console.log(this.currency);
     if(this.currency === undefined) {
       return false;
     } else {
